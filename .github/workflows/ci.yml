@@ -22,4 +22,4 @@ jobs:
         cache: 'npm'
     - run: | 
         npm install
-        npx cypress open
+        npx cypress run
