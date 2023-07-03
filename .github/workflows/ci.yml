@@ -13,13 +13,18 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - name: Instalando o Node.js e o Cypress
+      - name: Checkout do repositório
         uses: actions/checkout@v3
+        
+      - name: Configurando Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Instalando as dependências
-        run: npm install
+        run: |
+          npm install 
+          npm install -D cypress@9.1
 
       - name: Executando os testes com cypress
         run: npx cypress run
