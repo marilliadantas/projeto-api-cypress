@@ -22,9 +22,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Instalando as dependências
-        run: |
-          npm install 
-          npm install -D cypress@9.1
+        run: | 
+          echo "Instalando as dependências" && npm install && npm install -D cypress@9.1
 
       - name: Executando os testes com cypress
-        run: npx cypress run
+        run: echo "Executando os testes" && npx cypress run
