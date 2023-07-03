@@ -26,7 +26,4 @@ jobs:
           echo "Instalando as dependências" && npm install && npm install -D cypress@9.1
 
       - name: Executando os testes com cypress
-        run: echo "Executando os testes" && npx cypress run --reporter mochawesome
-        
-      - name: Gerar relatório Mocha
-        run: echo "Instalando as dependências" && npx mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mocha/report.json && npx mochawesome-report-generator cypress/reports/mocha/report.json --reportDir cypress/reports/mocha/html
+        run: echo "Executando os testes" && npx cypress run
