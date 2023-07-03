@@ -1,4 +1,4 @@
-name: Executar testes
+name: Executando testes
 
 on:
   push:
@@ -13,14 +13,14 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - name: Instalar o Node.js e o Cypress
+      - name: Instalando o Node.js e o Cypress
         uses: actions/checkout@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Instalar dependências
+      - name: Instalando as dependências
         run: npm install
 
-      - name: Executar testes com o Cypress
+      - name: Executando os testes com cypress
         run: npx cypress run
