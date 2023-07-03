@@ -27,3 +27,6 @@ jobs:
 
       - name: Executando os testes com cypress
         run: echo "Executando os testes" && npx cypress run
+        
+      - name: Gerar relatório Mocha
+        run: echo "Instalando as dependências" && npx marge --reportDir=cypress/reports/mocha
