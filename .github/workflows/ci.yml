@@ -24,25 +24,3 @@ jobs:
 
       - name: Executar testes com o Cypress
         run: npx cypress run
-
-      - name: Criar diretório para relatórios
-        run: mkdir testArtifacts
-
-      - name: Instalar o Newman
-        run: |
-          npm install -g newman
-          npm install -g newman-reporter-htmlextra
-
-      - name: Executar testes com o Newman
-        run: newman run ServRest.postman_collection.json -e serveRest_env.postman_environment.json -r cli,htmlextra
-
-      - name: Gerar relatório
-        run: |
-          mkdir -p newman/reports
-          newman run ServRest.postman_collection.json -e serveRest_env.postman_environment.json -r htmlextra --reporter-htmlextra-export newman/reports/index.html
-
-      - name: Publicar relatório como artefato
-        uses: actions/upload-artifact@v2
-        with:
-          name: Relatórios
-          path: newman/reports
